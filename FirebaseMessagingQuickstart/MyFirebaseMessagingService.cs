@@ -30,7 +30,13 @@ namespace FirebaseMessagingQuickstart
             Android.Util.Log.Info(TAG, "From: " + message.From);
             Android.Util.Log.Info(TAG, "Notification Message Body: " + message.GetNotification ().Body);
 
-            UserDialogs.Instance.Alert(message.GetNotification().Body);
+
+            var notification = message.GetNotification();
+            var title = notification.Title;
+            var body = notification.Body;
+
+            SendNotification(body);
+
         }
         // [END receive_message]
 
